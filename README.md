@@ -1,11 +1,15 @@
 
 
-# MultiTalk for RunPod Serverless
+# MultiTalk for RunPod Serverless (Optimized)
+
 [한국어 README 보기](README_kr.md)
 
-This project is a template designed to easily deploy and use [MeiGen-AI/MultiTalk](https://github.com/MeiGen-AI/MultiTalk) in the RunPod Serverless environment.
+This project is an **optimized template** designed to easily deploy and use [MeiGen-AI/MultiTalk](https://github.com/MeiGen-AI/MultiTalk) in the RunPod Serverless environment.
 
-[![Runpod](https://api.runpod.io/badge/wlsdml1114/Multitalk_Runpod_hub)](https://console.runpod.io/hub/wlsdml1114/Multitalk_Runpod_hub)
+> **🚀 Enhancements in this version:**
+> *   **Instant Cold Starts**: Model weights (~20GB) are baked into the Docker image, reducing startup time from 30+ minutes to seconds.
+> *   **H100 & Future-Proof Support**: Updated environment (CUDA 12.4 + PyTorch 2.5.1) to support **NVIDIA H100**, **RTX 4090**, and **RTX 5090**.
+> *   **Universal Compatibility**: Runs on T4, V100, A100, A6000, and more.
 
 MultiTalk is an AI model that takes a single portrait image and multilingual speech audio as input to generate natural lip-sync videos in real-time.
 
@@ -15,13 +19,18 @@ MultiTalk is an AI model that takes a single portrait image and multilingual spe
 *   **Real-time Video Generation**: Creates videos synchronized with input audio at high speed.
 *   **High-Quality Lip-sync**: Lip movements are precisely synchronized with the input audio.
 
-## 🚀 RunPod Serverless Template
+## 🚀 Deployment Guide
 
-This template includes all the necessary components to run MultiTalk as a RunPod Serverless Worker.
+To deploy this on RunPod, please follow the detailed step-by-step guide:
 
-*   **Dockerfile**: Configures the environment and installs all dependencies required for model execution.
-*   **handler.py**: Implements the handler function that processes requests for RunPod Serverless.
-*   **entrypoint.sh**: Performs initialization tasks when the worker starts.
+👉 **[Read the DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)**
+
+This guide covers:
+1.  Pushing the code to your GitHub.
+2.  Building the optimized Docker images.
+3.  Setting up the Serverless Endpoint on RunPod.
+
+## 🛠️ Usage and API Reference
 
 ### Input
 
@@ -89,11 +98,6 @@ If the job fails, it returns a JSON object containing an error message.
   "stderr": "..."
 }
 ```
-
-## 🛠️ Usage and API Reference
-
-1.  Create a Serverless Endpoint on RunPod based on this repository.
-2.  Once the build is complete and the endpoint is active, submit jobs via HTTP POST requests according to the API Reference below.
 
 ### 📁 Using Network Volumes
 
